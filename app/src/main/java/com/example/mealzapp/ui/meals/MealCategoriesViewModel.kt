@@ -17,6 +17,6 @@ class MealCategoriesViewModel(private val repository: MealRepository = MealRepos
     }
 
     private fun getMealCategories() = viewModelScope.launch {
-        mealCategories.value = repository.getMealCategories().categories
+        repository.getMealCategories().collect { mealCategories.value = it.categories }
     }
 }
