@@ -26,7 +26,6 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun MealCategoriesScreen() {
     val viewModel: MealCategoriesViewModel = viewModel()
-    viewModel.getMealCategories()
     LazyColumn() {
         items(viewModel.mealCategories.value) {
             Text(

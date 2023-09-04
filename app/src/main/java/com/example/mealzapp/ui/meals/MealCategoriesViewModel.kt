@@ -12,7 +12,11 @@ class MealCategoriesViewModel(private val repository: MealRepository = MealRepos
     ViewModel() {
     val mealCategories: MutableState<List<MealCategory>> = mutableStateOf(emptyList())
 
-    fun getMealCategories() = viewModelScope.launch {
+    init {
+        getMealCategories()
+    }
+
+    private fun getMealCategories() = viewModelScope.launch {
         mealCategories.value = repository.getMealCategories().categories
     }
 }
