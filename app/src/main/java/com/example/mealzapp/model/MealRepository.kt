@@ -1,4 +1,5 @@
 package com.example.mealzapp.model
 
-class MealRepository {
+class MealRepository(private val mealWebService: MealWebService = MealWebService()) {
+    suspend fun getMealCategories(): MealCategoriesResponse = mealWebService.getMealCategories()
 }
